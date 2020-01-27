@@ -52,11 +52,19 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.2\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.2\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -207,6 +215,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,6 +223,8 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="PluginServer\GenerateFile\AGenerateFile.cs" />
+    <Compile Include="PluginServer\GenerateFile\GeneratePDF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -258,6 +269,24 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="src\components\index.js" />
+    <Content Include="src\main.js" />
+    <Content Include="src\plugins\axios.js" />
+    <Content Include="src\plugins\chartist.js" />
+    <Content Include="src\plugins\index.js" />
+    <Content Include="src\plugins\theme.js" />
+    <Content Include="src\plugins\vuetify.js" />
+    <Content Include="src\router\index.js" />
+    <Content Include="src\router\paths.js" />
+    <Content Include="src\store\actions.js" />
+    <Content Include="src\store\getters.js" />
+    <Content Include="src\store\index.js" />
+    <Content Include="src\store\modules\app\mutations.js" />
+    <Content Include="src\store\modules\app\state.js" />
+    <Content Include="src\store\modules\index.js" />
+    <Content Include="src\store\mutations.js" />
+    <Content Include="src\store\state.js" />
+    <Content Include="src\utils\vuex.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -273,6 +302,51 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="src\App.vue" />
+    <Content Include="src\components\core\Drawer.vue">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="src\components\core\Filter.vue" />
+    <Content Include="src\components\core\Footer.vue" />
+    <Content Include="src\components\core\Toolbar.vue" />
+    <Content Include="src\components\core\View.vue" />
+    <Content Include="src\components\helper\Offset.vue" />
+    <Content Include="src\components\material\Card.vue" />
+    <Content Include="src\components\material\ChartCard.vue" />
+    <Content Include="src\components\material\Notification.vue" />
+    <Content Include="src\components\material\StatsCard.vue" />
+    <Content Include="src\styles\index.scss" />
+    <Content Include="src\styles\material-dashboard\_alerts.scss" />
+    <Content Include="src\styles\material-dashboard\_buttons.scss" />
+    <Content Include="src\styles\material-dashboard\_cards.scss" />
+    <Content Include="src\styles\material-dashboard\_checkboxes.scss" />
+    <Content Include="src\styles\material-dashboard\_colors.scss" />
+    <Content Include="src\styles\material-dashboard\_dropdown.scss" />
+    <Content Include="src\styles\material-dashboard\_fixed-plugin.scss" />
+    <Content Include="src\styles\material-dashboard\_footer.scss" />
+    <Content Include="src\styles\material-dashboard\_inputs.scss" />
+    <Content Include="src\styles\material-dashboard\_misc.scss" />
+    <Content Include="src\styles\material-dashboard\_mixins.scss" />
+    <Content Include="src\styles\material-dashboard\_sidebar.scss" />
+    <Content Include="src\styles\material-dashboard\_tables.scss" />
+    <Content Include="src\styles\material-dashboard\_tabs.scss" />
+    <Content Include="src\styles\material-dashboard\_toolbar.scss" />
+    <Content Include="src\styles\material-dashboard\_tooltips.scss" />
+    <Content Include="src\styles\material-dashboard\_typography.scss" />
+    <Content Include="src\styles\material-dashboard\_variables.scss" />
+    <Content Include="src\views\Dashboard.vue">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="src\views\Icons.vue" />
+    <Content Include="src\views\Maps.vue" />
+    <Content Include="src\views\Notifications.vue" />
+    <Content Include="src\views\TableList.vue" />
+    <Content Include="src\views\Typography.vue">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="src\views\Upgrade.vue" />
+    <Content Include="src\views\UserProfile.vue" />
+    <Content Include="src\views\Invoice.vue" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

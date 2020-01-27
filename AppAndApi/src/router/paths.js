@@ -15,6 +15,11 @@ export default [
     view: 'UserProfile'
   },
   {
+      path: '/invoice',
+      name: 'Invoice',
+      view: 'Invoice'
+  },
+  {
     path: '/table-list',
     name: 'Table List',
     view: 'TableList'

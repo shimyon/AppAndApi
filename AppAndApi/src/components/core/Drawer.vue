@@ -29,7 +29,7 @@
             />
           </v-list-tile-avatar>
           <v-list-tile-title class="title">
-            Vuetify MD
+            Shimyon
           </v-list-tile-title>
         </v-list-tile>
         <v-divider/>
@@ -48,7 +48,7 @@
             v-text="link.text"
           />
         </v-list-tile>
-        <v-list-tile
+        <!--<v-list-tile
           active-class="success"
           class="v-list-item v-list__tile--buy"
           to="/upgrade"
@@ -59,7 +59,7 @@
           <v-list-tile-title class="font-weight-light">
             Upgrade To PRO
           </v-list-tile-title>
-        </v-list-tile>
+        </v-list-tile>-->
       </v-layout>
     </v-img>
   </v-navigation-drawer>
@@ -91,6 +91,11 @@ export default {
         to: '/user-profile',
         icon: 'mdi-account',
         text: 'User Profile'
+      },
+      {
+        to: '/invoice',
+        icon: 'mdi-file-document-box',
+        text: 'Invoice'
       },
       {
         to: '/table-list',

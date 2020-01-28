@@ -25,7 +25,6 @@
 
 <script>
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import axios from "axios";
 import env from "../environment";
 const leader =
   "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.";
@@ -42,14 +41,23 @@ export default {
     }
   }),
   methods: {
-    GenerateInvoice() {
+    GenerateInvoice() {      
       console.log(env.APIPATH);
-      debugger;
-      axios
-        .post(env.APIPATH + "Invoice/GenereteFile", {
+      const senddata = JSON.stringify({
           Data: this.editorData,
           Type: "PDF"
+        });
+      debugger;
+      this.$json.post(env.APIPATH + "Invoice/GenereteFile", senddata)
+      .then(res => {
+          alert(res);
         })
+        .catch(err => {
+          alert(err);
+        });
+        return;
+      axios
+        .post(env.APIPATH + "Invoice/GenereteFile", senddata)
         .then(res => {
           alert(res);
         })

@@ -4,3 +4,8 @@ import Vue from 'vue'
 import axios from 'axios'
 
 Vue.prototype.$http = axios
+Vue.prototype.$json = axios.create({
+        headers: {
+          "content-Type": 'application/json'
+        }
+      })

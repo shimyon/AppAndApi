@@ -12,13 +12,13 @@ namespace AppAndApi.PluginServer.GenerateFile
         HTML
     }
 
-    public abstract class AGenerateFile
+    public class AGenerateFile
     {
         public FileType Type { get; set; }
-        public object Data { get; set; }
-        public virtual void Generate()
+        public string Data { get; set; }
+        public virtual object Generate()
         {
-
+            return null;
         }
     }
 }

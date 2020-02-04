@@ -41,10 +41,9 @@
               slot="items"
               slot-scope="{ item }"
             >
-              <td>{{ item.name }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
+              <td>{{ item.TenentName }}</td>
+              <td>{{ item.CreatedOn }}</td>
+              <td class="text-xs-right">{{ item.IsActive }}</td>
             </template>
           </v-data-table>
         </material-card>
@@ -56,70 +55,55 @@
 <script>
 import {  mapMutations,  mapState} from 'vuex'
 export default {
+  beforeMount() {
+    this.GetData();
+  },
   methods: {
-    SaveTenent(){
-      alert(this.TenentName);      
+    SaveTenent() {
+      this.$json({
+        "TenentName" : this.TenentName
+        },"Tanent/Create")
+      .then(res =>{
+        if (res.data && res.data.IsOk) {
+          alert(res.data.DisplayMsg);
+          this.GetData();
+        }
+      }).catch(err => {
+        alert("Error:" + err);
+      })      
+    },
+    GetData() {
+      this.$json(null, "Tanent/GetAll")
+      .then(res =>{
+        if (res.data) {
+          this.items = res.data;
+        }
+      }).catch(err => {
+        alert("Error:" + err);
+      })
     }
   },
   data: () => ({
+    type: ['', 'info', 'success', 'warning', 'danger'],
     TenentName:'',
     headers: [
       {
         sortable: false,
-        text: 'Name',
-        value: 'name'
+        text: 'Tenent Name',
+        value: 'TenentName'
       },
       {
         sortable: false,
-        text: 'Country',
-        value: 'country'
+        text: 'Created On',
+        value: 'CreatedOn'
       },
       {
         sortable: false,
-        text: 'City',
-        value: 'city'
-      },
-      {
-        sortable: false,
-        text: 'Salary',
-        value: 'salary',
-        align: 'right'
+        text: 'Active',
+        value: 'IsActive'
       }
     ],
-    items: [
-      {
-        name: 'Dakota Rice',
-        country: 'Niger',
-        city: 'Oud-Tunrhout',
-        salary: '$35,738'
-      },
-      {
-        name: 'Minerva Hooper',
-        country: 'Curaçao',
-        city: 'Sinaai-Waas',
-        salary: '$23,738'
-      }, {
-        name: 'Sage Rodriguez',
-        country: 'Netherlands',
-        city: 'Overland Park',
-        salary: '$56,142'
-      }, {
-        name: 'Philip Chanley',
-        country: 'Korea, South',
-        city: 'Gloucester',
-        salary: '$38,735'
-      }, {
-        name: 'Doris Greene',
-        country: 'Malawi',
-        city: 'Feldkirchen in Kārnten',
-        salary: '$63,542'
-      }, {
-        name: 'Mason Porter',
-        country: 'Chile',
-        city: 'Gloucester',
-        salary: '$78,615'
-      }
-    ]
+    items: []
   })
 }
 </script>

@@ -16,6 +16,10 @@ namespace Api.Controllers
         public ResultMsg Create(Tenent Tbl)
         {
             ResultMsg resultmsg = tenentService.Create(Tbl);
+            if (resultmsg.IsOk)
+            {
+                resultmsg.DisplayMsg = "Saved successfully";
+            }
             return resultmsg;
         }
 
@@ -34,9 +38,10 @@ namespace Api.Controllers
             throw new NotImplementedException();
         }
 
+        [HttpPost]
         public List<Tenent> GetAll()
         {
-            throw new NotImplementedException();
+            return tenentService.GetAll();
         }
     }
 }

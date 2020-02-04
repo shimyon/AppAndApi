@@ -32,7 +32,7 @@ namespace BAL
 
         public List<Tenent> GetAll()
         {
-            throw new NotImplementedException();
+            return crud.GetAll();
         }
     }
 }

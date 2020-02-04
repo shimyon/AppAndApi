@@ -53,7 +53,8 @@ namespace BAL
 
         public List<T> GetAll()
         {
-            throw new NotImplementedException();
+            var list = context.Set<T>().ToList();
+            return list;
         }
     }
 }

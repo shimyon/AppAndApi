@@ -15,16 +15,23 @@ Vue.prototype.$json = (senddata, methodaction) => {
   return axios({
           method: 'post',
           url: env.APIPATH + methodaction,
-          "content-Type": 'application/json',
+          headers: {
+            "content-Type": 'application/json',
+            'tenentid': localStorage['tenentid'] || ''
+          },
           data: senddata
-    });
+      });
 }
+
 Vue.prototype.$pdf = (senddata, methodaction) => {
 	return axios({
           method: 'post',
           url: env.APIPATH + methodaction,
           responseType: 'arraybuffer',
-          "content-Type": 'application/json',
+          headers: {
+            "content-Type": 'application/json',
+            'tenentid': localStorage['tenentid'] || ''
+          },
           data: senddata
-    });
+      });
 }

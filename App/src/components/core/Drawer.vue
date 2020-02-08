@@ -1,23 +1,8 @@
 <template>
   <v-navigation-drawer
-    id="app-drawer"
-    v-model="inputValue"
-    app
-    dark
-    floating
-    persistent
-    mobile-break-point="991"
-    width="260"
-  >
-    <v-img
-      :src="image"
-      height="100%"
-    >
-      <v-layout
-        class="fill-height"
-        tag="v-list"
-        column
-      >
+    id="app-drawer" v-model="inputValue" app dark floating persistent mobile-break-point="991" width="260">
+    <v-img :src="image" height="100%">
+      <v-layout class="fill-height" tag="v-list" column>
         <v-list-tile avatar>
           <v-list-tile-avatar
             color="white"
@@ -33,14 +18,8 @@
           </v-list-tile-title>
         </v-list-tile>
         <v-divider/>
-        <v-list-tile
-          v-for="(link, i) in links"
-          :key="i"
-          :to="link.to"
-          :active-class="color"
-          avatar
-          class="v-list-item"
-        >
+        
+        <v-list-tile v-for="(link, i) in links" :key="i" :to="link.to" :active-class="color" avatar class="v-list-item">
           <v-list-tile-action>
             <v-icon>{{ link.icon }}</v-icon>
           </v-list-tile-action>
@@ -88,9 +67,11 @@ export default {
         text: 'Dashboard'
       },
       {
-        to: '/user-profile',
+        to: '/user/userlist',
         icon: 'mdi-account',
-        text: 'User Profile'
+        text: 'User Profile',
+        children:[
+        ]
       },
       {
         to: '/tenent',

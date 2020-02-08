@@ -15,9 +15,21 @@ export default [
     view: 'Tenent'
   },
   {
-    path: '/user-profile',
+    path: '/user',
     name: 'User Profile',
-    view: 'UserProfile'
+    view: 'user/user',
+    children:[
+      {
+        path: 'userlist',
+        name: 'User List',
+        view: 'userlist'
+      },
+      {
+        path: 'usercreate/:id?',
+        name: 'User Create',
+        view: 'usercreate'
+      }
+    ]
   },
   {
       path: '/invoice',

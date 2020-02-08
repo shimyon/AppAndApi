@@ -15,24 +15,39 @@ import Meta from 'vue-meta'
 // Routes
 import paths from './paths'
 
-function route (path, view, name) {
+function route (path, view, name, children) {
+  let mainview = (name || view);
+  let letchildren = []; 
+  (children || []).forEach(c => {
+      let childview = (c.name || c.view)
+      letchildren.push({
+        name: childview,
+        path: c.path,
+        component:(resolve) => import(
+            `@/views${path}/${c.view}.vue`
+          ).then(resolve) 
+      })
+  });
   return {
-    name: name || view,
+    name: mainview,
     path,
     component: (resolve) => import(
       `@/views/${view}.vue`
     ).then(resolve)
-  }
+    ,children: letchildren
+  };
 }
 
 Vue.use(Router)
 
 // Create a new router
+const globalroute = paths.map(path => route(path.path, path.view, path.name, path.children)).concat([
+    { path: '*', redirect: '/' }
+  ]);
+// alert(JSON.stringify(globalroute));
 const router = new Router({
   mode: 'history',
-  routes: paths.map(path => route(path.path, path.view, path.name)).concat([
-    { path: '*', redirect: '/' }
-  ]),
+  routes: globalroute,
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition

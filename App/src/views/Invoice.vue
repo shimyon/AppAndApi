@@ -3,12 +3,10 @@
     <v-layout justify-center align-center>
       <v-flex xs12>
         <material-card
-          color="green"
-          title="Material Dashboard Heading"
-          text="Created using Roboto Font Family"
+         :active-class="color"
+          title="Generate Invoice"
         >
           <v-card-text>
-            <h2 class="font-weight-light mb-4">Generate Invoice</h2>
 
             <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
             <v-btn
@@ -41,7 +39,7 @@ export default {
     }
   }),
   methods: {
-    GenerateInvoice() {      
+    GenerateInvoice() {
         const senddata = {
           Data: this.editorData,
           Type: "PDF"

@@ -7,7 +7,7 @@ using DatabaseEntity;
 
 namespace BAL
 {
-    public class TenentService : ICRUD<DatabaseEntity.Tenent>
+    public class TenentService : ICRUDS<DatabaseEntity.Tenent>
     {
         CRUD<DatabaseEntity.Tenent> crud = new CRUD<Tenent>();
         public ResultMsg Create(Tenent Tbl)
@@ -27,7 +27,7 @@ namespace BAL
 
         public Tenent Get(Guid TblId)
         {
-            throw new NotImplementedException();
+            return crud.Get(w => w.Id == TblId);
         }
 
         public List<Tenent> GetAll()

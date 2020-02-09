@@ -9,7 +9,7 @@ using DatabaseEntity;
 
 namespace Api.Controllers
 {
-    public class TanentController : ApiController, BAL.ICRUD<DatabaseEntity.Tenent>
+    public class TanentController : ApiController, BAL.ICRUDS<DatabaseEntity.Tenent>
     {
         TenentService tenentService = new TenentService();
         [HttpPost]

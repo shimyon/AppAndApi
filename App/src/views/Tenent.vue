@@ -2,7 +2,8 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
       <v-flex xs12 md4>
-        <material-card color="green" title="Edit Profile" text="Complete your profile">
+         <!-- text="Complete your profile" -->
+        <material-card color="green" title="New Tenent">
           <v-form>
             <v-container py-0>
               <v-layout wrap>
@@ -17,11 +18,11 @@
           </v-form>
         </material-card>
       </v-flex>
-      <v-flex xs12 md8>        
+      <v-flex xs12 md8>
+          <!-- text="Here is a subtitle for this table" -->  
         <material-card
           color="green"
-          title="Simple Table"
-          text="Here is a subtitle for this table"
+          title="Tenent List"
         >
           <v-data-table
             :headers="headers"

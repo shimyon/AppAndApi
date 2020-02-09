@@ -44,7 +44,37 @@ namespace BAL
 
         public ResultMsg Edit(Guid TblId, T Tbl)
         {
-            throw new NotImplementedException();
+            ResultMsg result = new ResultMsg();
+            try
+            {
+
+                if (Tbl == null)
+                    return null;
+
+                T existing = context.Set<T>().Find(TblId);
+
+                if (existing != null)
+                {
+                    context.Entry(existing).CurrentValues.SetValues(Tbl);
+                    context.SaveChanges();
+                }
+                result.IsOk = true;
+            }
+            catch (Exception ex)
+            {
+                result.Exception = ex.Message;
+                if (ex.InnerException != null)
+                {
+                    result.InnerException = ex.InnerException.Message;
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        result.InnInnerException = ex.InnerException.InnerException.Message;
+                    }
+                }
+                result.StackTrace = ex.StackTrace;
+                result.IsOk = false;
+            }
+            return result;
         }
 
         public T Get(Expression<Func<T, bool>> filter)

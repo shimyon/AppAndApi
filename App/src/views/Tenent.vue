@@ -65,12 +65,16 @@ export default {
         "TenentName" : this.TenentName
         },"Tanent/Create")
       .then(res =>{
-        if (res.data && res.data.IsOk) {
-          alert(res.data.DisplayMsg);
+        if (res.data) {
+          if (res.data.IsOk) {
+            this.$alertify.success(res.data.DisplayMsg);
+          } else {
+            this.$alertify.error(res.data.DisplayMsg);
+          }
           this.GetData();
         }
       }).catch(err => {
-        alert("Error:" + err);
+        this.$alertify.error("Error:" + err);
       })      
     },
     GetData() {
@@ -80,7 +84,7 @@ export default {
           this.items = res.data;
         }
       }).catch(err => {
-        alert("Error:" + err);
+        this.$alertify.error("Error:" + err);
       })
     }
   },

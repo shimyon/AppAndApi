@@ -10,11 +10,11 @@
 	
 	<div v-if="isLoading">
 		<div class="lds-ellipsis-wrap">
-	    </div>
-	  	<div class="lds-ellipsis">
-	  		<img src="./img/loading.gif" style="height: 200px;" />
-	  	</div>
+    </div>
+  	<div class="lds-ellipsis">
+  		<img src="./img/loading.gif" style="height: 200px;" />
   	</div>
+	</div>
     
   </v-app>
 </template>

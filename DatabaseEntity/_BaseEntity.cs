@@ -26,8 +26,7 @@ namespace DatabaseEntity
         public _BaseEntity()
         {
             Id = Guid.NewGuid();
-            CreatedOn = DateTime.Now;
+            CreatedOn = DateTime.UtcNow;
         }
-
     }
 }

@@ -1,3 +1,3 @@
 export default {
-    APIPATH: "http://localhost/gopi/api/"
+    APIPATH: "http://localhost:4777/api/"
 }

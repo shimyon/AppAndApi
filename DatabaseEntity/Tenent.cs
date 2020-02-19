@@ -22,7 +22,7 @@ namespace DatabaseEntity
         public Tenent()
         {
             Id = Guid.NewGuid();
-            CreatedOn = DateTime.Now;
+            CreatedOn = DateTime.UtcNow;
         }
     }
 }

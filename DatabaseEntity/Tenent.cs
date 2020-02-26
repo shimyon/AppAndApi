@@ -12,6 +12,10 @@ namespace DatabaseEntity
 
         [Key]
         public Guid Id { get; set; }
+        
+        [StringLength(5)]
+        public string ClientId { get; set; }
+
         [StringLength(50)]
         public string TenentName { get; set; }
         public bool? IsActive { get; set; }

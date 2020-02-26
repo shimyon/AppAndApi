@@ -8,6 +8,9 @@
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md12>
+                  <v-text-field class="purple-input" label="Client Id" v-model='ClientId' />
+                </v-flex>
+                <v-flex xs12 md12>
                   <v-text-field class="purple-input" label="Tenent Name" v-model='TenentName' />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
@@ -42,6 +45,7 @@
               slot="items"
               slot-scope="{ item }"
             >
+              <td>{{ item.ClientId }}</td>
               <td>{{ item.TenentName }}</td>
               <td>{{ item.CreatedOn }}</td>
               <td class="text-xs-right">{{ item.IsActive }}</td>
@@ -62,7 +66,8 @@ export default {
   methods: {
     SaveTenent() {
       this.$json({
-        "TenentName" : this.TenentName
+        "TenentName" : this.TenentName,
+        "ClientId": this.ClientId
         },"Tanent/Create")
       .then(res =>{
         if (res.data) {
@@ -91,7 +96,13 @@ export default {
   data: () => ({
     type: ['', 'info', 'success', 'warning', 'danger'],
     TenentName:'',
+    ClientId:'',
     headers: [
+      {
+        sortable: false,
+        text: 'Client Id',
+        value: 'ClientId'
+      },      
       {
         sortable: false,
         text: 'Tenent Name',

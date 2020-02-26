@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <core-filter />
+    <core-filter  v-if="$route.name !== 'login'" />
 
-    <core-toolbar />
+    <core-toolbar  v-if="$route.name !== 'login'"  />
 
-    <core-drawer />
+    <core-drawer   v-if="$route.name !== 'login'" />
 
     <core-view />
 	

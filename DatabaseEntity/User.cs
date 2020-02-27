@@ -22,6 +22,9 @@ namespace DatabaseEntity
         [StringLength(50)]
         public string SurName { get; set; }
 
+        [StringLength(100)]
+        public string Password { get; set; }
+
         public string Address { get; set; }
 
     }

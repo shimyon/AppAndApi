@@ -62,6 +62,7 @@
     <Compile Include="ResultMsg.cs" />
     <Compile Include="TenentService.cs" />
     <Compile Include="UserService.cs" />
+    <Compile Include="ViewModel\TenentLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseEntity\DatabaseEntity.csproj">

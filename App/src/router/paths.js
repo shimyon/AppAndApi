@@ -5,66 +5,66 @@
  */
 export default [
   {
-    path: "",
+    path: '',
     // Relative to /src/views
-    view: "Dashboard"
+    view: 'Dashboard'
   },
   {
-    path: "/login",
-    name: "login",
-    view: "login"
+    path: '/login',
+    name: 'login',
+    view: 'login'
   },
   {
-    path: "/tenent",
-    name: "Tenent",
-    view: "Tenent"
+    path: '/tenent',
+    name: 'Tenent',
+    view: 'Tenent'
   },
   {
-    path: "/user",
-    name: "User Profile",
-    view: "user/user",
+    path: '/user',
+    name: 'User Profile',
+    view: 'user/user',
     children: [
       {
-        path: "userlist",
-        name: "User List",
-        view: "userlist"
+        path: 'userlist',
+        name: 'User List',
+        view: 'userlist'
       },
       {
-        path: "usercreate/:id?",
-        name: "User Create",
-        view: "usercreate"
+        path: 'usercreate/:id?',
+        name: 'User Create',
+        view: 'usercreate'
       }
     ]
   },
   {
-    path: "/invoice",
-    name: "Invoice",
-    view: "Invoice"
+    path: '/invoice',
+    name: 'Invoice',
+    view: 'Invoice'
   },
   {
-    path: "/table-list",
-    name: "Table List",
-    view: "TableList"
+    path: '/table-list',
+    name: 'Table List',
+    view: 'TableList'
   },
   {
-    path: "/typography",
-    view: "Typography"
+    path: '/typography',
+    view: 'Typography'
   },
   {
-    path: "/icons",
-    view: "Icons"
+    path: '/icons',
+    view: 'Icons'
   },
   {
-    path: "/maps",
-    view: "Maps"
+    path: '/maps',
+    view: 'Maps'
   },
   {
-    path: "/notifications",
-    view: "Notifications"
+    path: '/notifications',
+    view: 'Notifications'
   },
   {
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    view: "Upgrade"
+    path: '/upgrade',
+    name: 'Upgrade to PRO',
+    view: 'Upgrade'
   }
 ];

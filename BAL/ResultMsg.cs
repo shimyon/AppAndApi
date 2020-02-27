@@ -15,4 +15,9 @@ namespace BAL
         public string InnerException { get; set; }
         public string InnInnerException { get; set; }
     }
+
+    public class ResultMsgLogin : ResultMsg
+    {
+        public Guid TenentId { get; set; }
+    }
 }
